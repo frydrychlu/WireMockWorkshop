@@ -28,4 +28,13 @@ public class RestAssuredUtils {
                 .body(body)
                 .post(path);
     }
+
+    public static Response createHomework(String path, String body) {
+        return given()
+                .auth().preemptive().basic("homework", "home123")
+                .baseUri(BASE_URL)
+                .contentType("application/json")
+                .body(body)
+                .post(path);
+    }
 }
