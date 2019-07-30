@@ -12,7 +12,8 @@ public class RestAssuredUtils {
         return given()
                 .baseUri(BASE_URL)
                 .basePath(String.format(path, id))
-                .header("Content-Type", "application/json")
+                .auth().preemptive().basic("John", "123")
+                .cookie("Cookie", "example")
                 .get();
     }
 
